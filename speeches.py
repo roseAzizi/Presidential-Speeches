@@ -4,13 +4,13 @@ import re
 
 def main(): 
     # creating the speeches df and cleaning it up a little bit (removing urls panel and stuff)
-    df = pd.read_json("/Users/rose/Desktop/speech_project/allSpeech.json") 
+    df = pd.read_json("Presidential-Speeches/allSpeech.json") 
     df = df.drop("url", axis = 'columns')  
     df.insert(4, "Flesch–Kincaid Score", '')  
     df.insert(5, "cleaned speech", '') 
     # new smaller df for testing purposes when writing script. Subset of larger df 
     bbDf = df.loc[986:988]   
-    FleschScore(bbDf).to_csv('test.csv', index=False) 
+    FleschScore(bbDf).to_csv('Presidential-Speeches/test.csv', index=False) 
   
 
     
@@ -54,7 +54,7 @@ def SpeechCleanup(speech):
         speech = ' '.join([str(segment) for segment in segments])
     return speech
 
-def SyllableCount(speech): 
+#def SyllableCount(speech): 
     #will do later, in seperate project
 
 
